@@ -1,0 +1,19 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        Stack<Character> st = new Stack<>(); 
+        for(int i = 0; i< s.length(); i++){
+            char ch = s.charAt(i);
+            if(!st.isEmpty() && st.peek() == ch){ // if top/recent element = character pop that character!
+                st.pop();
+            }
+            else{ // else insert/push in the stack
+                st.push(ch);
+            }
+        }
+        StringBuilder res = new StringBuilder();
+        while(!st.isEmpty()){
+            res.append(st.pop());
+        }
+        return res.reverse().toString(); // reverse & return thr string       
+    }
+}
